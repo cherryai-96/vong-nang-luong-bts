@@ -1,60 +1,146 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { INTRO_VIDEO } from '@/data/siteContent';
-import { getYouTubeEmbedUrl, getYouTubeId } from '@/lib/utils';
+import { getYouTubeId } from '@/lib/utils';
 
 export default function IntroVideoSection() {
   const [isPlayingInline, setIsPlayingInline] = useState(false);
-  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl);
-  const embedUrl = getYouTubeEmbedUrl(INTRO_VIDEO.youtubeUrl, true);
+  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl) || '7aEpPB8fh8E';
+  const playerRef = useRef<any>(null);
 
-  // Programmatically enforce Vietnamese captions via YouTube Iframe API when video starts
   useEffect(() => {
     if (!isPlayingInline) return;
 
-    const setupPlayerCaptions = () => {
+    let destroyed = false;
+    let checkInterval: any = null;
+
+    const enforceVietnameseCaptions = (player: any) => {
+      if (!player) return;
       try {
-        if (!(window as any).YT || !(window as any).YT.Player) return;
-        new (window as any).YT.Player('intro-video-iframe', {
+        if (typeof player.loadModule === 'function') {
+          player.loadModule('captions');
+        }
+        if (typeof player.setOption === 'function') {
+          // 1. Force preferred track language to Vietnamese
+          player.setOption('captions', 'track', { languageCode: 'vi' });
+
+          // 2. Target automatic translation language to Vietnamese
+          player.setOption('captions', 'translationLanguage', { languageCode: 'vi' });
+
+          // 3. Fallback translation on standard track
+          player.setOption('captions', 'track', {
+            languageCode: 'en',
+            translationLanguage: { languageCode: 'vi' },
+          });
+
+          // 4. Dynamically inspect tracklist and apply Vietnamese if available
+          if (typeof player.getOption === 'function') {
+            const tracklist = player.getOption('captions', 'tracklist');
+            if (Array.isArray(tracklist) && tracklist.length > 0) {
+              const vi = tracklist.find((t: any) => t.languageCode === 'vi');
+              if (vi) {
+                player.setOption('captions', 'track', vi);
+              } else {
+                player.setOption('captions', 'track', {
+                  ...tracklist[0],
+                  translationLanguage: { languageCode: 'vi' },
+                });
+              }
+            }
+          }
+        }
+      } catch (err) {
+        // Fallback to URL embed parameters
+      }
+    };
+
+    const initPlayer = () => {
+      if (destroyed) return;
+      const YT = (window as any).YT;
+      if (!YT || !YT.Player) return;
+
+      try {
+        playerRef.current = new YT.Player('intro-video-container', {
+          videoId,
+          width: '100%',
+          height: '100%',
+          playerVars: {
+            autoplay: 1,
+            cc_load_policy: 1,
+            cc_lang_pref: 'vi',
+            hl: 'vi',
+            rel: 0,
+            modestbranding: 1,
+            enablejsapi: 1,
+            playsinline: 1,
+            origin: typeof window !== 'undefined' ? window.location.origin : '',
+          },
           events: {
             onReady: (event: any) => {
+              if (destroyed) return;
               try {
                 event.target.playVideo();
-                event.target.loadModule('captions');
-                event.target.setOption('captions', 'track', { languageCode: 'vi' });
-                event.target.setOption('captions', 'translationLanguage', { languageCode: 'vi' });
-              } catch (e) {
-                // Ignore if browser restricts
+              } catch (e) {}
+              enforceVietnameseCaptions(event.target);
+            },
+            onStateChange: (event: any) => {
+              if (destroyed) return;
+              if (event.data === YT.PlayerState.PLAYING) {
+                enforceVietnameseCaptions(event.target);
+                setTimeout(() => enforceVietnameseCaptions(event.target), 600);
+                setTimeout(() => enforceVietnameseCaptions(event.target), 1500);
+                setTimeout(() => enforceVietnameseCaptions(event.target), 3000);
               }
             },
             onApiChange: (event: any) => {
-              try {
-                event.target.loadModule('captions');
-                event.target.setOption('captions', 'track', { languageCode: 'vi' });
-                event.target.setOption('captions', 'translationLanguage', { languageCode: 'vi' });
-              } catch (e) {
-                // Ignore
-              }
+              if (destroyed) return;
+              enforceVietnameseCaptions(event.target);
             },
           },
         });
       } catch (e) {
-        // Fallback already guaranteed via URL parameters
+        // Player creation fallback
       }
     };
 
-    if (!(window as any).YT) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      document.body.appendChild(tag);
-      (window as any).onYouTubeIframeAPIReady = setupPlayerCaptions;
+    // Load YouTube API script if not present
+    if (!(window as any).YT || !(window as any).YT.Player) {
+      const existingScript = document.querySelector('script[src*="youtube.com/iframe_api"]');
+      if (!existingScript) {
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.body.appendChild(tag);
+      }
+
+      const prevCallback = (window as any).onYouTubeIframeAPIReady;
+      (window as any).onYouTubeIframeAPIReady = () => {
+        if (typeof prevCallback === 'function') prevCallback();
+        initPlayer();
+      };
+
+      checkInterval = setInterval(() => {
+        if ((window as any).YT && (window as any).YT.Player) {
+          clearInterval(checkInterval);
+          initPlayer();
+        }
+      }, 200);
     } else {
-      setupPlayerCaptions();
+      initPlayer();
     }
-  }, [isPlayingInline]);
+
+    return () => {
+      destroyed = true;
+      if (checkInterval) clearInterval(checkInterval);
+      if (playerRef.current && typeof playerRef.current.destroy === 'function') {
+        try {
+          playerRef.current.destroy();
+        } catch (e) {}
+      }
+    };
+  }, [isPlayingInline, videoId]);
 
   return (
     <section id="video-showcase" className="py-24 sm:py-32 bg-[#F4FAFD] relative scroll-mt-20">
@@ -73,18 +159,11 @@ export default function IntroVideoSection() {
           </p>
         </div>
 
-        {/* Video Showcase Container: Plays directly inline on the page */}
+        {/* Video Showcase Container */}
         <div className="max-w-5xl mx-auto">
           <div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-2xl bg-black border border-slate-200/80 group">
-            {isPlayingInline && videoId ? (
-              <iframe
-                id="intro-video-iframe"
-                src={embedUrl}
-                title={INTRO_VIDEO.title}
-                className="w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+            {isPlayingInline ? (
+              <div id="intro-video-container" className="w-full h-full" />
             ) : (
               <div
                 onClick={() => setIsPlayingInline(true)}

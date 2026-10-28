@@ -16,7 +16,7 @@ export function getYouTubeId(url: string): string | null {
 }
 
 /**
- * Returns privacy-enhanced embed URL with Vietnamese subtitles forced
+ * Returns embed URL with Vietnamese subtitles forced
  */
 export function getYouTubeEmbedUrl(url: string, autoplay = true): string {
   const videoId = getYouTubeId(url);
@@ -25,7 +25,7 @@ export function getYouTubeEmbedUrl(url: string, autoplay = true): string {
   // hl=vi: interface language Vietnamese
   // cc_lang_pref=vi: preferred subtitle language Vietnamese
   // enablejsapi=1: allow JavaScript control for captions auto-translation
-  return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1&cc_load_policy=1&hl=vi&cc_lang_pref=vi${
+  return `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1&cc_load_policy=1&hl=vi&cc_lang_pref=vi${
     autoplay ? '&autoplay=1' : ''
   }`;
 }
