@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { SITE_CONFIG, NAV_ITEMS } from '@/data/siteContent';
 
 export default function Footer() {
@@ -10,8 +11,17 @@ export default function Footer() {
     <footer className="bg-[#17212B] text-white pt-14 pb-10 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-slate-800/80">
-          {/* Simple Website Name on Left (NO logo) */}
+          {/* Logo & Website Info on Left */}
           <div>
+            <div className="mb-4 bg-white/95 rounded-xl px-3 py-1.5 inline-block">
+              <Image
+                src="/images/logo-bw.png"
+                alt="Blessings Wave International"
+                width={140}
+                height={62}
+                className="h-8 w-auto object-contain"
+              />
+            </div>
             <h3 className="text-base sm:text-lg font-black tracking-widest uppercase text-white mb-2">
               {SITE_CONFIG.siteTitle}
             </h3>

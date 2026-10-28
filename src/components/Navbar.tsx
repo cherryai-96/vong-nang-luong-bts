@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { NAV_ITEMS, SITE_CONFIG } from '@/data/siteContent';
 
@@ -21,17 +22,33 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-nav border-b border-slate-100 py-3 shadow-xs'
-            : 'bg-white/85 backdrop-blur-xs py-4'
+            ? 'glass-nav border-b border-slate-100 py-2.5 sm:py-3 shadow-xs'
+            : 'bg-white/90 backdrop-blur-md py-3.5 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Left Text Name (No brand logo) */}
+          {/* Logo & Brand Identity on Left */}
           <a
             href="#hero"
-            className="text-xs sm:text-sm font-extrabold tracking-widest uppercase text-[#17212B] hover:text-[#75D6EA] transition-colors"
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-hidden"
+            aria-label="Blessings Wave International - Vòng Năng Lượng Vô Hướng"
           >
-            {SITE_CONFIG.siteTitle}
+            <Image
+              src="/images/logo-bw.png"
+              alt="Blessings Wave International"
+              width={160}
+              height={70}
+              priority
+              className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+            />
+            <div className="hidden xl:flex flex-col border-l border-slate-200/80 pl-3">
+              <span className="text-[11px] font-black tracking-widest uppercase text-[#17212B] leading-tight">
+                VÒNG NĂNG LƯỢNG
+              </span>
+              <span className="text-[9px] font-bold tracking-wider uppercase text-[#75D6EA] leading-tight">
+                VÔ HƯỚNG
+              </span>
+            </div>
           </a>
 
           {/* Center Navigation */}
@@ -63,9 +80,9 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-1.5 rounded-lg text-[#17212B]"
-              aria-label="Menu"
+              aria-label="Mở menu điều hướng"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -81,13 +98,18 @@ export default function Navbar() {
           <div className="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-white p-6 shadow-xl flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#17212B]">
-                  {SITE_CONFIG.siteTitle}
-                </span>
+                <Image
+                  src="/images/logo-bw.png"
+                  alt="Blessings Wave International"
+                  width={140}
+                  height={62}
+                  className="h-7 w-auto object-contain"
+                />
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1 text-slate-400"
+                  aria-label="Đóng menu"
                 >
                   <X className="w-5 h-5" />
                 </button>

@@ -286,7 +286,7 @@ export const INTRO_VIDEO = {
 export const TESTIMONIAL_VIDEOS: VideoItem[] = [
   {
     id: '01',
-    title: 'Cảm nhận độ êm ái khi tập luyện',
+    title: 'Cảm nhận độ êm ái và cân bằng khi vận động',
     youtubeUrl: 'https://www.youtube.com/watch?v=L_LUpnjgPso',
     category: 'deo-chan',
     productName: 'Đeo Chân',
@@ -295,7 +295,7 @@ export const TESTIMONIAL_VIDEOS: VideoItem[] = [
   },
   {
     id: '02',
-    title: 'Sự thoải mái trong các buổi rèn luyện',
+    title: 'Sự thoải mái và dẻo dai trong các buổi rèn luyện',
     youtubeUrl: 'https://www.youtube.com/watch?v=kJQP7kiw5Fk',
     category: 'suc-manh',
     productName: 'Sức Mạnh',
@@ -304,7 +304,7 @@ export const TESTIMONIAL_VIDEOS: VideoItem[] = [
   },
   {
     id: '03',
-    title: 'Thói quen thư thái sau giờ làm việc',
+    title: 'Thói quen thư thái và giấc ngủ sâu sau giờ làm việc',
     youtubeUrl: 'https://www.youtube.com/watch?v=fJ9rUzIMcZQ',
     category: 'thu-gian',
     productName: 'Thư Giãn',
@@ -313,12 +313,30 @@ export const TESTIMONIAL_VIDEOS: VideoItem[] = [
   },
   {
     id: '04',
-    title: 'Đồng hành cùng nhịp sống năng động',
+    title: 'Đồng hành cùng nhịp sống năng động và phục hồi',
     youtubeUrl: 'https://www.youtube.com/watch?v=9bZkp7q19f0',
     category: 'tre-hoa',
     productName: 'Trẻ Hóa',
     customerName: 'Người yêu thích du lịch',
     duration: '02:10',
+  },
+  {
+    id: '05',
+    title: 'Thử nghiệm độ thăng bằng và vững vàng bước đi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=obuipW1xOBo',
+    category: 'deo-chan',
+    productName: 'Đeo Chân',
+    customerName: 'Thử nghiệm cân bằng cơ thể',
+    duration: '01:45',
+  },
+  {
+    id: '06',
+    title: 'Trải nghiệm sinh lực và độ bền bỉ thể chất',
+    youtubeUrl: 'https://www.youtube.com/watch?v=Qa7HSUUh-G0',
+    category: 'suc-manh',
+    productName: 'Sức Mạnh',
+    customerName: 'Người dùng rèn luyện thể thao',
+    duration: '02:40',
   },
 ];
 
