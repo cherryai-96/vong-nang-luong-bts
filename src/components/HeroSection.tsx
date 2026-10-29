@@ -81,8 +81,8 @@ export default function HeroSection({ onOpenVideo }: HeroSectionProps) {
               <Image
                 src="/images/transparent/bo-suu-tap-4-vong-trimmed.png"
                 alt="Bộ sưu tập 4 dòng Vòng Năng Lượng Vô Hướng"
-                width={1004}
-                height={760}
+                width={674}
+                height={508}
                 priority
                 className="product-image hero-image transition-transform duration-500"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 55vw, 650px"

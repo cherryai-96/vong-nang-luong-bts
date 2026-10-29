@@ -48,8 +48,8 @@ export default function FinalShowcaseSection() {
             <Image
               src="/images/transparent/bo-suu-tap-4-vong-trimmed.png"
               alt="Toàn bộ 4 phiên bản Vòng Năng Lượng Vô Hướng"
-              width={1004}
-              height={760}
+              width={674}
+              height={508}
               className="product-image hero-image hover:scale-102 transition-transform duration-500"
               sizes="(max-width: 1024px) 100vw, 760px"
             />
