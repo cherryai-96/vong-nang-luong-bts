@@ -52,12 +52,12 @@ export default function Navbar() {
           </a>
 
           {/* Center Navigation */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-xs font-semibold tracking-wider text-[#667085] hover:text-[#17212B] transition-colors uppercase"
+                className="text-xs font-semibold tracking-wider text-[#667085] hover:text-[#17212B] transition-colors uppercase whitespace-nowrap"
               >
                 {item.label}
               </a>

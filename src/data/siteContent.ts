@@ -54,9 +54,12 @@ export const SITE_CONFIG = {
 
 export const NAV_ITEMS = [
   { label: 'Giới thiệu', href: '#hero' },
-  { label: 'Nhu cầu sức khỏe', href: '#health-topics' },
+  { label: '4 Không', href: '#four-zeroes' },
+  { label: 'Nhu cầu', href: '#health-topics' },
   { label: '4 dòng vòng', href: '#products' },
+  { label: '5 Tác động', href: '#health-matrix' },
   { label: 'Công nghệ', href: '#technology' },
+  { label: 'Kiểm chứng', href: '#visual-evidence' },
   { label: 'Video', href: '#video-showcase' },
   { label: 'Trải nghiệm', href: '#testimonials' },
 ];
@@ -395,3 +398,222 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Đã có rất nhiều kết quả trải nghiệm thực tế hỗ trợ tốt cho sức khỏe. Quý khách có thể xem thêm các video chia sẻ trải nghiệm trên website hoặc trang YouTube để có cái nhìn trực quan nhất.',
   },
 ];
+
+export interface FourZeroesItem {
+  id: string;
+  badge: string;
+  title: string;
+  tagline: string;
+  description: string;
+}
+
+export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
+  {
+    id: 'zero-pills',
+    badge: '01',
+    title: 'Không Thuốc',
+    tagline: 'Không gánh nặng chuyển hóa',
+    description: 'Kích hoạt năng lượng sinh học tự nhiên, không qua dạ dày, gan hay thận.',
+  },
+  {
+    id: 'zero-injections',
+    badge: '02',
+    title: 'Không Tiêm',
+    tagline: 'Phi xâm lấn tuyệt đối',
+    description: 'Truyền dẫn trường vô hướng qua hệ thống kinh lạc nhẹ nhàng, êm dịu.',
+  },
+  {
+    id: 'zero-chemicals',
+    badge: '03',
+    title: 'Không Hóa Chất',
+    tagline: '100% tự nhiên & tương thích',
+    description: 'Tần số sinh học thảo mộc nguyên bản, tinh khiết và lành tính với cơ thể.',
+  },
+  {
+    id: 'zero-side-effects',
+    badge: '04',
+    title: 'Không Tác Dụng Phụ',
+    tagline: 'Đeo an tâm liên tục 24/7',
+    description: 'Cơ thể tự điều hòa theo nhịp sinh học tự nhiên, an toàn cho mọi lứa tuổi.',
+  },
+];
+
+export interface HealthMatrixColumn {
+  id: string;
+  label: string;
+  sublabel: string;
+  colorHex: string;
+  bgHex: string;
+  borderHex: string;
+  badgeBg: string;
+  items: string[];
+}
+
+export const HEALTH_MATRIX_DATA: HealthMatrixColumn[] = [
+  {
+    id: 'tang',
+    label: 'TĂNG',
+    sublabel: 'Sinh lực & Sức bền',
+    colorHex: '#1E293B',
+    bgHex: '#F8FAFC',
+    borderHex: '#E2E8F0',
+    badgeBg: '#0F172A',
+    items: [
+      'Sức bền và phát triển cơ bắp',
+      'Độ dẻo dai của thành mạch máu',
+      'Sức đề kháng & hệ miễn dịch',
+      'Năng lượng sinh học tế bào',
+      'Hỗ trợ huyết áp thấp ổn định',
+    ],
+  },
+  {
+    id: 'giam',
+    label: 'GIẢM',
+    sublabel: 'Gánh nặng & Đau mỏi',
+    colorHex: '#DC2626',
+    bgHex: '#FEF2F2',
+    borderHex: '#FECACA',
+    badgeBg: '#DC2626',
+    items: [
+      'Áp lực huyết áp cao',
+      'Lượng đường dư thừa trong máu',
+      'Mỡ thừa & chuyển hóa năng lượng',
+      'Đau nhức mỏi, tê bì chân tay',
+      'Đau bụng co thắt chu kỳ nữ',
+    ],
+  },
+  {
+    id: 'can-bang',
+    label: 'CÂN BẰNG',
+    sublabel: 'Hệ thống sinh thái',
+    colorHex: '#9333EA',
+    bgHex: '#FAF5FF',
+    borderHex: '#E9D5FF',
+    badgeBg: '#9333EA',
+    items: [
+      'Cân bằng hệ nội tiết tố',
+      'Ổn định thần kinh thực vật',
+      'Trung hòa các gốc tự do',
+      'Điều hòa nhịp sinh học giấc ngủ',
+      'Thăng bằng trọng tâm cơ thể',
+    ],
+  },
+  {
+    id: 'khang-viem',
+    label: 'PHỤC HỒI',
+    sublabel: 'Kháng viêm & Tự chữa lành',
+    colorHex: '#0D9488',
+    bgHex: '#F0FDFA',
+    borderHex: '#CCFBF1',
+    badgeBg: '#0D9488',
+    items: [
+      'Hỗ trợ giảm viêm dạ dày, ruột',
+      'Giảm viêm khớp & chấn thương',
+      'Hỗ trợ bệnh phụ khoa / nam khoa',
+      'Tăng tốc tái tạo vết thương',
+      'Kích hoạt khả năng tự phục hồi',
+    ],
+  },
+  {
+    id: 'tuan-hoan',
+    label: 'TUẦN HOÀN',
+    sublabel: 'Thanh lọc & Thải độc',
+    colorHex: '#0284C7',
+    bgHex: '#F0F9FF',
+    borderHex: '#BAE6FD',
+    badgeBg: '#0284C7',
+    items: [
+      'Đả thông hệ kinh tuyến TCM',
+      'Lưu thông dòng máu sạch, giàu oxy',
+      'Tách rời hồng cầu dính vón',
+      'Thanh lọc độc tố tích tụ mô',
+      'Bảo vệ thành mạch, phòng đột quỵ',
+    ],
+  },
+];
+
+export interface VisualEvidenceItem {
+  id: string;
+  title: string;
+  badge: string;
+  image: string;
+  beforeLabel: string;
+  afterLabel: string;
+  summary: string;
+  highlights: string[];
+}
+
+export const VISUAL_EVIDENCES_DATA: VisualEvidenceItem[] = [
+  {
+    id: 'darkfield-blood',
+    title: 'Kiểm Chứng Dòng Máu Tươi Dưới Kính Hiển Vi',
+    badge: 'DARKFIELD BLOOD TEST',
+    image: '/images/evidence/evidence-blood-darkfield.png',
+    beforeLabel: 'Trước: Hồng cầu dính chùm chuỗi (Rouleaux), máu quánh đặc, di chuyển chậm, thiếu hụt oxy.',
+    afterLabel: 'Sau: Hồng cầu tách rời tròn đều, bơi tự do linh hoạt, vi tuần hoàn thông suốt và giàu dưỡng khí.',
+    summary:
+      'Hiện tượng hồng cầu dính vón làm tắc nghẽn vi mạch và thiếu oxy tế bào. Dưới tác động của trường năng lượng vô hướng, điện tích màng tế bào được tái lập, giúp hồng cầu tách rời và vận chuyển dưỡng khí tối ưu.',
+    highlights: ['Tách rời hồng cầu vón cục', 'Tăng tốc lưu thông dòng máu', 'Cải thiện oxy nuôi dưỡng tế bào'],
+  },
+  {
+    id: 'thermography',
+    title: 'Ảnh Chụp Phổ Nhiệt Hồng Ngoại Thân Thể',
+    badge: 'BODY THERMOGRAPHY',
+    image: '/images/evidence/evidence-thermography.png',
+    beforeLabel: 'Trước: Thân nhiệt lạnh, vi tuần hoàn chân tay và cổ vai gáy kém (vùng màu tím / xanh tối).',
+    afterLabel: 'Sau: Thân nhiệt chuyển màu ấm đều (vàng / đỏ cam), kích hoạt dòng chảy khí huyết toàn diện.',
+    summary:
+      'Ảnh chụp phổ nhiệt hồng ngoại y sinh ghi nhận sự ấm lên rõ rệt của cơ thể sau khi đeo vòng. Khí huyết lưu thông đến các đầu chi, giúp giải tỏa hàn lạnh, giảm tê bì và thư giãn các nhóm cơ căng cứng.',
+    highlights: ['Làm ấm chân tay và cơ thể', 'Tăng cường vi tuần hoàn mô', 'Giải phóng ứ trệ kinh lạc'],
+  },
+  {
+    id: 'emf-shield',
+    title: 'Lá Chắn Bảo Vệ Khỏi Bức Xạ EMF & 5G',
+    badge: 'EMF & 5G RADIATION SHIELD',
+    image: '/images/evidence/evidence-emf-shield.png',
+    beforeLabel: 'Điện thoại thông thường: Vùng nhiệt kích ứng lớn (màu trắng/tím) gây căng thẳng mô tế bào não.',
+    afterLabel: 'Có màng lọc Protect Filter: Vùng nhiệt kích ứng giảm mạnh, kiểm soát áp lực sóng điện từ.',
+    summary:
+      'Công nghệ đĩa 3 chiều 2-trong-1 tạo trường triệt tiêu bức xạ phi ion hóa từ sóng điện thoại, Wi-Fi và 5G, giúp bảo vệ vùng đầu não, giảm mệt mỏi thị giác và căng thẳng hệ thần kinh trong kỷ nguyên số.',
+    highlights: ['Giảm thiểu bức xạ điện thoại', 'Hạn chế nhức đầu và mệt mỏi', 'Bảo vệ tế bào thần kinh'],
+  },
+];
+
+export const PARTNER_RND_DATA = {
+  title: 'BẢO CHỨNG R&D & NGUỒN GỐC HOA KỲ',
+  headline: '8ight Research Labs LLP (USA)',
+  tagline: 'Tiên phong quốc tế từ năm 2006 trong công nghệ tín hiệu sinh học có thể đeo',
+  description:
+    '8ight Research Labs (Hoa Kỳ) là viện nghiên cứu công nghệ sinh học năng lượng với hơn 18 năm kinh nghiệm phát triển đĩa ba chiều (hologram chip) và tần số vô hướng, được bảo hộ và kiểm nghiệm khoa học tại Mỹ.',
+  logo: '/images/evidence/8ight-labs-logo.png',
+  flag: '/images/evidence/us-flag.jpg',
+  leaders: [
+    {
+      name: 'Warren Hanchey',
+      role: 'Người sáng lập & Giám đốc Nghiên cứu (8ight Labs USA)',
+      bio: 'Chuyên gia quốc tế về năng lượng sinh học ba chiều; diễn giả tại Hội nghị Y học Vô hướng toàn cầu và Hội nghị Orthomolecular tại San Paulo, Brazil.',
+      image: '/images/evidence/warren-hanchey.jpg',
+    },
+    {
+      name: 'Michelle Hanchey',
+      role: 'Tổng giám đốc điều hành (CEO - 8ight Labs USA)',
+      quote:
+        '“Nhiệm vụ của chúng tôi là tạo ra sự khác biệt tích cực cho cuộc sống bằng cách sử dụng năng lượng sinh học tác động an toàn lên cơ thể mà không cần đến thuốc hay hóa chất.”',
+      image: '/images/evidence/michelle-hanchey.jpg',
+    },
+  ],
+  labVideos: [
+    {
+      title: 'Cơ chế hoạt động tại phòng Lab',
+      url: 'https://youtu.be/_eIQ0G3NnUs',
+    },
+    {
+      title: 'Chứng minh hiệu quả thực nghiệm',
+      url: 'https://youtu.be/GMs6P9GYn7o',
+    },
+    {
+      title: 'Thí nghiệm dòng máu tươi trực tiếp',
+      url: 'https://youtu.be/m-2mLRCMU5E',
+    },
+  ],
+};
