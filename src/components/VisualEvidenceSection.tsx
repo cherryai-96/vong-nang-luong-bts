@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ShieldCheck, CheckCircle2, ExternalLink, Play, Beaker, Flame, WifiOff } from 'lucide-react';
+import { CheckCircle2, Beaker, Flame, WifiOff } from 'lucide-react';
 import { VISUAL_EVIDENCES_DATA, PARTNER_RND_DATA } from '@/data/siteContent';
 
 const EVIDENCE_ICONS = [Beaker, Flame, WifiOff];
@@ -119,103 +119,92 @@ export default function VisualEvidenceSection() {
           </div>
         </div>
 
-        {/* 8ight Labs USA Credibility & R&D Section */}
-        <div className="rounded-3xl bg-linear-to-b from-[#17212B] to-[#0F172A] text-white p-8 sm:p-12 lg:p-14 shadow-2xl relative overflow-hidden">
-          {/* Subtle Decorative Pattern */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#75D6EA]/5 rounded-full blur-3xl pointer-events-none" />
+        {/* 8ight Labs USA Credibility & R&D Section - Large & Beautiful Portraits */}
+        <div className="rounded-3xl bg-linear-to-b from-[#17212B] via-[#111827] to-[#0B0F19] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-slate-800">
+          {/* Subtle Decorative Ambient Glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#75D6EA]/8 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
-            {/* Top Partner Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-slate-700/60 mb-10">
-              <div className="flex items-center gap-5">
-                <div className="relative w-28 sm:w-36 h-12 shrink-0 bg-white/5 rounded-xl p-2 border border-white/10 flex items-center justify-center">
+            {/* Header: Logo, Company & Description */}
+            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18 pb-10 border-b border-slate-700/60">
+              <p className="text-xs font-bold tracking-widest text-[#75D6EA] uppercase mb-4">
+                {PARTNER_RND_DATA.title}
+              </p>
+
+              {/* Large 8ight Labs Logo + US Flag */}
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <div className="relative w-48 sm:w-60 h-16 sm:h-20 drop-shadow-lg">
                   <Image
                     src={PARTNER_RND_DATA.logo}
                     alt="8ight Research Labs Logo"
                     fill
-                    className="object-contain p-1"
+                    className="object-contain"
+                    priority
                   />
                 </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                      {PARTNER_RND_DATA.headline}
-                    </h3>
-                    <div className="relative w-5 h-3.5 rounded-xs overflow-hidden shrink-0">
-                      <Image
-                        src={PARTNER_RND_DATA.flag}
-                        alt="USA Flag"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                  <p className="text-xs font-semibold text-[#75D6EA] tracking-wide">
-                    {PARTNER_RND_DATA.tagline}
-                  </p>
+                <div className="relative w-7 h-5 rounded-xs overflow-hidden shadow-sm shrink-0">
+                  <Image
+                    src={PARTNER_RND_DATA.flag}
+                    alt="USA Flag"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
-              <div className="text-xs sm:text-sm text-slate-300 max-w-md leading-relaxed">
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
+                {PARTNER_RND_DATA.headline}
+              </h3>
+              <p className="text-xs sm:text-sm font-semibold text-[#75D6EA] mb-4">
+                {PARTNER_RND_DATA.tagline}
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
                 {PARTNER_RND_DATA.description}
-              </div>
+              </p>
             </div>
 
-            {/* Founders & Leadership Quote */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+            {/* 2 Big Prominent Scientists / Founders Columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
               {PARTNER_RND_DATA.leaders.map((leader, idx) => (
                 <div
                   key={idx}
-                  className="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-xs flex flex-col justify-between"
+                  className="bg-white/5 hover:bg-white/8 rounded-3xl p-8 sm:p-10 border border-white/10 backdrop-blur-sm transition-all duration-300 flex flex-col items-center text-center group"
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-[#75D6EA]/40">
-                      <Image
-                        src={leader.image}
-                        alt={leader.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="text-base font-bold text-white">
-                        {leader.name}
-                      </h4>
-                      <p className="text-xs font-medium text-slate-400">
-                        {leader.role}
-                      </p>
-                    </div>
+                  {/* Large High-Res Avatar with Glowing Border */}
+                  <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 rounded-full overflow-hidden shadow-2xl border-4 border-[#75D6EA]/30 group-hover:border-[#75D6EA] transition-all duration-300 group-hover:scale-105">
+                    <Image
+                      src={leader.image}
+                      alt={leader.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 176px, 208px"
+                    />
                   </div>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
-                    {leader.bio || leader.quote}
+                  {/* Name & Title */}
+                  <h4 className="text-2xl font-black text-white tracking-tight mb-1">
+                    {leader.name}
+                  </h4>
+                  <p className="text-xs sm:text-sm font-bold text-[#75D6EA] uppercase tracking-wider mb-5">
+                    {leader.role}
                   </p>
+
+                  {/* Bio or Quote */}
+                  <div className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md">
+                    {leader.bio && (
+                      <p className="text-slate-300 text-justify sm:text-center leading-relaxed">
+                        {leader.bio}
+                      </p>
+                    )}
+                    {leader.quote && (
+                      <blockquote className="italic text-slate-200 border-t border-white/10 pt-4 mt-2 font-serif text-sm sm:text-base leading-relaxed">
+                        {leader.quote}
+                      </blockquote>
+                    )}
+                  </div>
                 </div>
               ))}
-            </div>
-
-            {/* Lab Test Videos External Links */}
-            <div className="pt-6 border-t border-slate-700/60">
-              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">
-                Xem thêm video kiểm chứng trực tiếp từ 8ight Research Labs (Hoa Kỳ):
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {PARTNER_RND_DATA.labVideos.map((vid, idx) => (
-                  <a
-                    key={idx}
-                    href={vid.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#75D6EA]/50 transition-all text-xs font-medium text-slate-200 hover:text-white"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Play className="w-3.5 h-3.5 text-red-400 group-hover:scale-110 transition-transform" />
-                      <span className="truncate">{vid.title}</span>
-                    </span>
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 shrink-0 ml-2" />
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
         </div>

@@ -405,6 +405,7 @@ export interface FourZeroesItem {
   title: string;
   tagline: string;
   description: string;
+  iconImage: string;
 }
 
 export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
@@ -414,6 +415,7 @@ export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
     title: 'Không Thuốc',
     tagline: 'Không gánh nặng chuyển hóa',
     description: 'Kích hoạt năng lượng sinh học tự nhiên, không qua dạ dày, gan hay thận.',
+    iconImage: '/images/evidence/icon-khong-thuoc.png',
   },
   {
     id: 'zero-injections',
@@ -421,6 +423,7 @@ export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
     title: 'Không Tiêm',
     tagline: 'Phi xâm lấn tuyệt đối',
     description: 'Truyền dẫn trường vô hướng qua hệ thống kinh lạc nhẹ nhàng, êm dịu.',
+    iconImage: '/images/evidence/icon-khong-tiem.png',
   },
   {
     id: 'zero-chemicals',
@@ -428,6 +431,7 @@ export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
     title: 'Không Hóa Chất',
     tagline: '100% tự nhiên & tương thích',
     description: 'Tần số sinh học thảo mộc nguyên bản, tinh khiết và lành tính với cơ thể.',
+    iconImage: '/images/evidence/icon-khong-hoa-chat.png',
   },
   {
     id: 'zero-side-effects',
@@ -435,6 +439,7 @@ export const FOUR_ZEROES_DATA: FourZeroesItem[] = [
     title: 'Không Tác Dụng Phụ',
     tagline: 'Đeo an tâm liên tục 24/7',
     description: 'Cơ thể tự điều hòa theo nhịp sinh học tự nhiên, an toàn cho mọi lứa tuổi.',
+    iconImage: '/images/evidence/icon-khong-tac-dung-phu.png',
   },
 ];
 
@@ -580,40 +585,26 @@ export const VISUAL_EVIDENCES_DATA: VisualEvidenceItem[] = [
 ];
 
 export const PARTNER_RND_DATA = {
-  title: 'BẢO CHỨNG R&D & NGUỒN GỐC HOA KỲ',
-  headline: '8ight Research Labs LLP (USA)',
+  title: 'ĐỐI TÁC CHIẾN LƯỢC',
+  headline: '8ight Labs, USA',
   tagline: 'Tiên phong quốc tế từ năm 2006 trong công nghệ tín hiệu sinh học có thể đeo',
   description:
-    '8ight Research Labs (Hoa Kỳ) là viện nghiên cứu công nghệ sinh học năng lượng với hơn 18 năm kinh nghiệm phát triển đĩa ba chiều (hologram chip) và tần số vô hướng, được bảo hộ và kiểm nghiệm khoa học tại Mỹ.',
+    '8ight Research Labs (Hoa Kỳ) là đơn vị nghiên cứu tiên phong quốc tế hơn 18 năm trong lĩnh vực khí sinh học và công nghệ truyền dịch tần số vô hướng, tích hợp đĩa ba chiều đạt chuẩn kiểm nghiệm khoa học tại Mỹ.',
   logo: '/images/evidence/8ight-labs-logo.png',
   flag: '/images/evidence/us-flag.jpg',
   leaders: [
     {
       name: 'Warren Hanchey',
-      role: 'Người sáng lập & Giám đốc Nghiên cứu (8ight Labs USA)',
-      bio: 'Chuyên gia quốc tế về năng lượng sinh học ba chiều; diễn giả tại Hội nghị Y học Vô hướng toàn cầu và Hội nghị Orthomolecular tại San Paulo, Brazil.',
-      image: '/images/evidence/warren-hanchey.jpg',
+      role: 'Người sáng lập & Giám đốc Nghiên cứu 8ight Labs LLP, USA',
+      bio: 'Warren được công nhận là chuyên gia hàng đầu trong lĩnh vực năng lượng sinh học sử dụng công nghệ ba chiều để tác động tích cực đến sức khỏe con người và động vật. Ông đã phát biểu trên khắp thế giới, bao gồm hai Hội nghị Y học Vô hướng toàn cầu và Hội nghị Orthomolecular tại San Paulo, Brazil.',
+      image: '/images/evidence/warren-hanchey.png',
     },
     {
       name: 'Michelle Hanchey',
-      role: 'Tổng giám đốc điều hành (CEO - 8ight Labs USA)',
+      role: 'CEO 8ight Labs LLP, USA',
       quote:
-        '“Nhiệm vụ của chúng tôi là tạo ra sự khác biệt tích cực cho cuộc sống bằng cách sử dụng năng lượng sinh học tác động an toàn lên cơ thể mà không cần đến thuốc hay hóa chất.”',
-      image: '/images/evidence/michelle-hanchey.jpg',
-    },
-  ],
-  labVideos: [
-    {
-      title: 'Cơ chế hoạt động tại phòng Lab',
-      url: 'https://youtu.be/_eIQ0G3NnUs',
-    },
-    {
-      title: 'Chứng minh hiệu quả thực nghiệm',
-      url: 'https://youtu.be/GMs6P9GYn7o',
-    },
-    {
-      title: 'Thí nghiệm dòng máu tươi trực tiếp',
-      url: 'https://youtu.be/m-2mLRCMU5E',
+        '“Nhiệm vụ của tôi là tạo ra sự khác biệt tích cực trong cuộc sống của mọi người bằng cách sử dụng năng lượng sinh học để tác động lên cơ thể và cảm xúc một cách an toàn mà không cần sử dụng thuốc hoặc hóa chất.”',
+      image: '/images/evidence/michelle-hanchey.png',
     },
   ],
 };

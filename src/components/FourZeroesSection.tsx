@@ -1,17 +1,16 @@
 'use client';
 
 import React from 'react';
-import { Pill, Syringe, FlaskConical, ShieldCheck, Check } from 'lucide-react';
+import Image from 'next/image';
+import { Check } from 'lucide-react';
 import { FOUR_ZEROES_DATA } from '@/data/siteContent';
-
-const ICONS = [Pill, Syringe, FlaskConical, ShieldCheck];
 
 export default function FourZeroesSection() {
   return (
     <section id="four-zeroes" className="py-20 sm:py-28 bg-white border-y border-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-18">
+        <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-20">
           <p className="text-xs font-bold tracking-widest text-[#667085] uppercase mb-3">
             ĐỘT PHÁ CHĂM SÓC SỨC KHỎE THỤ ĐỘNG
           </p>
@@ -23,45 +22,51 @@ export default function FourZeroesSection() {
           </p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Cards Grid with Large Crisp Icons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {FOUR_ZEROES_DATA.map((item, idx) => {
-            const Icon = ICONS[idx] || ShieldCheck;
+          {FOUR_ZEROES_DATA.map((item) => {
             return (
               <div
                 key={item.id}
-                className="group relative bg-[#F8FAFC] hover:bg-white rounded-3xl p-7 border border-slate-200/80 hover:border-slate-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-[#F8FAFD] hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-slate-300 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between items-center text-center"
               >
-                <div>
-                  {/* Top Bar: Badge & Icon */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-slate-600 transition-colors">
-                      {item.badge}.
-                    </span>
-                    <div className="relative w-12 h-12 rounded-2xl bg-white group-hover:bg-red-50 border border-slate-200/80 group-hover:border-red-100 flex items-center justify-center transition-colors shadow-xs">
-                      <Icon className="w-6 h-6 text-slate-700 group-hover:text-red-500 transition-colors" />
-                      {/* Gentle diagonal line to symbolize "Zero / Không" */}
-                      <span className="absolute w-8 h-[2px] bg-red-500/80 -rotate-45 rounded-full pointer-events-none" />
-                    </div>
-                  </div>
+                {/* Number Badge Top Right */}
+                <div className="w-full flex justify-between items-center mb-4">
+                  <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-slate-600 transition-colors">
+                    {item.badge}.
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                    Thuần Tự Nhiên
+                  </span>
+                </div>
 
-                  {/* Title & Tagline */}
-                  <h3 className="text-xl font-black text-[#17212B] tracking-tight mb-1.5 group-hover:text-red-600 transition-colors">
+                {/* Big Bold Icon Container */}
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 my-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-108 drop-shadow-sm">
+                  <Image
+                    src={item.iconImage}
+                    alt={item.title}
+                    width={144}
+                    height={144}
+                    className="w-full h-full object-contain filter group-hover:drop-shadow-md transition-all"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="mt-4">
+                  <h3 className="text-xl sm:text-2xl font-black text-[#17212B] tracking-tight mb-1 group-hover:text-red-600 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
                     {item.tagline}
                   </p>
-
-                  {/* Description */}
                   <p className="text-sm text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Bottom Trust Stamp */}
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-2 text-xs font-medium text-emerald-600">
-                  <Check className="w-4 h-4 shrink-0" />
+                <div className="mt-6 pt-4 w-full border-t border-slate-200/60 flex items-center justify-center gap-2 text-xs font-semibold text-emerald-600">
+                  <Check className="w-4 h-4 stroke-[2.5]" />
                   <span>An toàn tự nhiên 100%</span>
                 </div>
               </div>
