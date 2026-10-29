@@ -119,23 +119,26 @@ export default function VisualEvidenceSection() {
           </div>
         </div>
 
-        {/* 8ight Labs USA Credibility & Strategic Partner - Clean, Balanced & Highly Legible */}
-        <div className="rounded-3xl bg-linear-to-b from-[#17212B] via-[#131D27] to-[#0D151D] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-slate-700/80">
+        {/* 8ight Labs USA Credibility & Strategic Partner - Guaranteed Solid Dark Background with Razor Sharp Contrast */}
+        <div
+          style={{ backgroundColor: '#17212B' }}
+          className="rounded-3xl text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-slate-700"
+        >
           {/* Subtle Ambient Lighting */}
           <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-[#75D6EA]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
             {/* Top Partner Header */}
-            <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20 pb-10 border-b border-slate-700/70">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-xs font-bold tracking-widest text-[#75D6EA] uppercase mb-5 border border-white/10">
+            <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20 pb-10 border-b border-slate-700/80">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-xs font-bold tracking-widest text-[#75D6EA] uppercase mb-5 border border-white/15">
                 {PARTNER_RND_DATA.eyebrow}
               </span>
 
               {/* Logo Pill Card with US Flag */}
               <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="inline-flex items-center gap-4 bg-white rounded-2xl py-3 px-6 shadow-xl">
-                  <div className="relative w-40 sm:w-48 h-12 sm:h-14">
+                <div className="inline-flex items-center gap-4 bg-white rounded-2xl py-3 px-6 sm:px-8 shadow-xl">
+                  <div className="relative w-44 sm:w-56 h-12 sm:h-14">
                     <Image
                       src={PARTNER_RND_DATA.logo}
                       alt="8ight Research Labs Logo"
@@ -162,7 +165,7 @@ export default function VisualEvidenceSection() {
               <p className="text-sm sm:text-base font-bold text-[#75D6EA] tracking-wide mb-4">
                 {PARTNER_RND_DATA.tagline}
               </p>
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-3xl mx-auto font-normal">
+              <p className="text-sm sm:text-base text-slate-100 leading-relaxed max-w-3xl mx-auto font-normal">
                 {PARTNER_RND_DATA.description}
               </p>
             </div>
@@ -174,7 +177,8 @@ export default function VisualEvidenceSection() {
                 return (
                   <div
                     key={idx}
-                    className="bg-white/[0.04] hover:bg-white/[0.07] rounded-3xl p-8 sm:p-10 border border-white/10 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                    style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                    className="hover:bg-white/[0.08] rounded-3xl p-8 sm:p-10 border border-white/15 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-lg"
                   >
                     <div>
                       {/* Avatar & Identifiers Centered */}
@@ -193,7 +197,7 @@ export default function VisualEvidenceSection() {
                           {leader.name}
                         </h4>
 
-                        <div className="inline-block px-3.5 py-1 rounded-full bg-[#75D6EA]/15 text-xs sm:text-sm font-bold text-[#75D6EA] mb-1.5 border border-[#75D6EA]/20">
+                        <div className="inline-block px-3.5 py-1 rounded-full bg-[#75D6EA]/20 text-xs sm:text-sm font-bold text-[#75D6EA] mb-1.5 border border-[#75D6EA]/30">
                           {leader.role}
                         </div>
                         <p className="text-xs sm:text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">
@@ -202,7 +206,10 @@ export default function VisualEvidenceSection() {
                       </div>
 
                       {/* Content Box (High Contrast, Large Legible Text) */}
-                      <div className="bg-slate-900/60 p-6 sm:p-7 rounded-2xl border border-white/10 mb-6">
+                      <div
+                        style={{ backgroundColor: 'rgba(15, 23, 42, 0.7)' }}
+                        className="p-6 sm:p-7 rounded-2xl border border-white/15 mb-6"
+                      >
                         {leader.bio && (
                           <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-normal text-left">
                             {leader.bio}
