@@ -585,25 +585,30 @@ export const VISUAL_EVIDENCES_DATA: VisualEvidenceItem[] = [
 ];
 
 export const PARTNER_RND_DATA = {
-  title: 'ĐỐI TÁC CHIẾN LƯỢC',
-  headline: '8ight Labs, USA',
+  eyebrow: 'HỢP TÁC R&D CHIẾN LƯỢC QUỐC TẾ',
+  title: 'Đối tác chiến lược của chúng tôi - 8ight Labs, USA',
+  company: '8ight Research Labs LLP (Hoa Kỳ)',
   tagline: 'Tiên phong quốc tế từ năm 2006 trong công nghệ tín hiệu sinh học có thể đeo',
   description:
-    '8ight Research Labs (Hoa Kỳ) là đơn vị nghiên cứu tiên phong quốc tế hơn 18 năm trong lĩnh vực khí sinh học và công nghệ truyền dịch tần số vô hướng, tích hợp đĩa ba chiều đạt chuẩn kiểm nghiệm khoa học tại Mỹ.',
+    '8ight Research Labs (Hoa Kỳ) là trung tâm nghiên cứu tiên phong hơn 18 năm về năng lượng sinh học và công nghệ vi chip ba chiều, ứng dụng truyền dẫn tần số vô hướng hỗ trợ phục hồi sức khỏe an toàn và chuẩn mực.',
   logo: '/images/evidence/8ight-labs-logo.png',
   flag: '/images/evidence/us-flag.jpg',
   leaders: [
     {
       name: 'Warren Hanchey',
-      role: 'Người sáng lập & Giám đốc Nghiên cứu 8ight Labs LLP, USA',
-      bio: 'Warren được công nhận là chuyên gia hàng đầu trong lĩnh vực năng lượng sinh học sử dụng công nghệ ba chiều để tác động tích cực đến sức khỏe con người và động vật. Ông đã phát biểu trên khắp thế giới, bao gồm hai Hội nghị Y học Vô hướng toàn cầu và Hội nghị Orthomolecular tại San Paulo, Brazil.',
+      role: 'Người sáng lập & Giám đốc Nghiên cứu',
+      company: '8ight Labs LLP, USA',
+      badge: 'Chuyên gia Năng lượng Sinh học 3 Chiều',
+      bio: 'Warren được công nhận là chuyên gia hàng đầu trong lĩnh vực năng lượng sinh học sử dụng công nghệ ba chiều để tác động tích cực đến sức khỏe con người và động vật. Ông đã phát biểu trên khắp thế giới, bao gồm hai Hội nghị Y học Vô hướng toàn cầu và Hội nghị Orthomolecular ở San Paulo, Brazil.',
       image: '/images/evidence/warren-hanchey.png',
     },
     {
       name: 'Michelle Hanchey',
-      role: 'CEO 8ight Labs LLP, USA',
+      role: 'Tổng giám đốc điều hành (CEO)',
+      company: '8ight Labs LLP, USA',
+      badge: 'Sứ mệnh Sức khỏe Tự nhiên Không Hóa chất',
       quote:
-        '“Nhiệm vụ của tôi là tạo ra sự khác biệt tích cực trong cuộc sống của mọi người bằng cách sử dụng năng lượng sinh học để tác động lên cơ thể và cảm xúc một cách an toàn mà không cần sử dụng thuốc hoặc hóa chất.”',
+        '“Nhiệm vụ của tôi là tạo ra sự khác biệt tích cực trong cuộc sống của những người khác bằng cách sử dụng năng lượng sinh học để tác động lên cơ thể và cảm xúc một cách an toàn mà không cần sử dụng thuốc hoặc hóa chất.”',
       image: '/images/evidence/michelle-hanchey.png',
     },
   ],

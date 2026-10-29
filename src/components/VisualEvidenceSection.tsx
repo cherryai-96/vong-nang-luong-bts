@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { CheckCircle2, Beaker, Flame, WifiOff } from 'lucide-react';
+import { CheckCircle2, Beaker, Flame, WifiOff, Award, ShieldCheck } from 'lucide-react';
 import { VISUAL_EVIDENCES_DATA, PARTNER_RND_DATA } from '@/data/siteContent';
 
 const EVIDENCE_ICONS = [Beaker, Flame, WifiOff];
@@ -119,92 +119,111 @@ export default function VisualEvidenceSection() {
           </div>
         </div>
 
-        {/* 8ight Labs USA Credibility & R&D Section - Large & Beautiful Portraits */}
-        <div className="rounded-3xl bg-linear-to-b from-[#17212B] via-[#111827] to-[#0B0F19] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-slate-800">
-          {/* Subtle Decorative Ambient Glow */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#75D6EA]/8 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
+        {/* 8ight Labs USA Credibility & Strategic Partner - Clean, Balanced & Highly Legible */}
+        <div className="rounded-3xl bg-linear-to-b from-[#17212B] via-[#131D27] to-[#0D151D] text-white p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-slate-700/80">
+          {/* Subtle Ambient Lighting */}
+          <div className="absolute top-0 right-1/4 w-[450px] h-[450px] bg-[#75D6EA]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-red-500/5 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
-            {/* Header: Logo, Company & Description */}
-            <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18 pb-10 border-b border-slate-700/60">
-              <p className="text-xs font-bold tracking-widest text-[#75D6EA] uppercase mb-4">
-                {PARTNER_RND_DATA.title}
-              </p>
+            {/* Top Partner Header */}
+            <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20 pb-10 border-b border-slate-700/70">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-xs font-bold tracking-widest text-[#75D6EA] uppercase mb-5 border border-white/10">
+                {PARTNER_RND_DATA.eyebrow}
+              </span>
 
-              {/* Large 8ight Labs Logo + US Flag */}
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <div className="relative w-48 sm:w-60 h-16 sm:h-20 drop-shadow-lg">
-                  <Image
-                    src={PARTNER_RND_DATA.logo}
-                    alt="8ight Research Labs Logo"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <div className="relative w-7 h-5 rounded-xs overflow-hidden shadow-sm shrink-0">
-                  <Image
-                    src={PARTNER_RND_DATA.flag}
-                    alt="USA Flag"
-                    fill
-                    className="object-cover"
-                  />
+              {/* Logo Pill Card with US Flag */}
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <div className="inline-flex items-center gap-4 bg-white rounded-2xl py-3 px-6 shadow-xl">
+                  <div className="relative w-40 sm:w-48 h-12 sm:h-14">
+                    <Image
+                      src={PARTNER_RND_DATA.logo}
+                      alt="8ight Research Labs Logo"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                  <div className="h-8 w-[1px] bg-slate-200" />
+                  <div className="relative w-8 h-5.5 rounded-xs overflow-hidden shadow-xs border border-slate-200 shrink-0">
+                    <Image
+                      src={PARTNER_RND_DATA.flag}
+                      alt="USA Flag"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
-                {PARTNER_RND_DATA.headline}
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight mb-3">
+                {PARTNER_RND_DATA.title}
               </h3>
-              <p className="text-xs sm:text-sm font-semibold text-[#75D6EA] mb-4">
+              <p className="text-sm sm:text-base font-bold text-[#75D6EA] tracking-wide mb-4">
                 {PARTNER_RND_DATA.tagline}
               </p>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-3xl mx-auto font-normal">
                 {PARTNER_RND_DATA.description}
               </p>
             </div>
 
-            {/* 2 Big Prominent Scientists / Founders Columns */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              {PARTNER_RND_DATA.leaders.map((leader, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/5 hover:bg-white/8 rounded-3xl p-8 sm:p-10 border border-white/10 backdrop-blur-sm transition-all duration-300 flex flex-col items-center text-center group"
-                >
-                  {/* Large High-Res Avatar with Glowing Border */}
-                  <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 rounded-full overflow-hidden shadow-2xl border-4 border-[#75D6EA]/30 group-hover:border-[#75D6EA] transition-all duration-300 group-hover:scale-105">
-                    <Image
-                      src={leader.image}
-                      alt={leader.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 176px, 208px"
-                    />
-                  </div>
+            {/* 2 Symmetrical, Balanced Leadership Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+              {PARTNER_RND_DATA.leaders.map((leader, idx) => {
+                const IconComponent = idx === 0 ? Award : ShieldCheck;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white/[0.04] hover:bg-white/[0.07] rounded-3xl p-8 sm:p-10 border border-white/10 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                  >
+                    <div>
+                      {/* Avatar & Identifiers Centered */}
+                      <div className="flex flex-col items-center text-center">
+                        <div className="relative w-44 h-44 sm:w-52 sm:h-52 mb-6 rounded-full overflow-hidden shadow-2xl border-4 border-[#75D6EA]/40 group-hover:border-[#75D6EA] transition-all duration-300 group-hover:scale-103 bg-[#17212B]">
+                          <Image
+                            src={leader.image}
+                            alt={leader.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 176px, 208px"
+                          />
+                        </div>
 
-                  {/* Name & Title */}
-                  <h4 className="text-2xl font-black text-white tracking-tight mb-1">
-                    {leader.name}
-                  </h4>
-                  <p className="text-xs sm:text-sm font-bold text-[#75D6EA] uppercase tracking-wider mb-5">
-                    {leader.role}
-                  </p>
+                        <h4 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1.5">
+                          {leader.name}
+                        </h4>
 
-                  {/* Bio or Quote */}
-                  <div className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md">
-                    {leader.bio && (
-                      <p className="text-slate-300 text-justify sm:text-center leading-relaxed">
-                        {leader.bio}
-                      </p>
-                    )}
-                    {leader.quote && (
-                      <blockquote className="italic text-slate-200 border-t border-white/10 pt-4 mt-2 font-serif text-sm sm:text-base leading-relaxed">
-                        {leader.quote}
-                      </blockquote>
-                    )}
+                        <div className="inline-block px-3.5 py-1 rounded-full bg-[#75D6EA]/15 text-xs sm:text-sm font-bold text-[#75D6EA] mb-1.5 border border-[#75D6EA]/20">
+                          {leader.role}
+                        </div>
+                        <p className="text-xs sm:text-sm font-semibold text-slate-300 uppercase tracking-wider mb-6">
+                          {leader.company}
+                        </p>
+                      </div>
+
+                      {/* Content Box (High Contrast, Large Legible Text) */}
+                      <div className="bg-slate-900/60 p-6 sm:p-7 rounded-2xl border border-white/10 mb-6">
+                        {leader.bio && (
+                          <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-normal text-left">
+                            {leader.bio}
+                          </p>
+                        )}
+                        {leader.quote && (
+                          <blockquote className="text-sm sm:text-base text-slate-100 leading-relaxed font-normal italic text-left relative pl-1">
+                            {leader.quote}
+                          </blockquote>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Symmetrical Bottom Credential Badge */}
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-[#75D6EA]">
+                      <IconComponent className="w-4 h-4 shrink-0" />
+                      <span>{leader.badge}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
