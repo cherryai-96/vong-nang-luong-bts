@@ -280,8 +280,8 @@ export const TECH_CONCEPTS = [
 ];
 
 export const INTRO_VIDEO = {
-  youtubeUrl: 'https://www.youtube.com/watch?v=ZJxIQTE5nmw',
-  title: 'Cơ Chế Hoạt Động Năng Lượng Vô Hướng',
+  youtubeUrl: 'https://youtu.be/O30mRejto84',
+  title: 'Cơ Chế Hoạt Động Năng Lượng Vô Hướng Blessing Wave',
   subtitle: 'Tìm hiểu nguyên lý khoa học và công nghệ tần số sinh học.',
   thumbnail: '/images/intro-video-thumb.jpg',
 };
