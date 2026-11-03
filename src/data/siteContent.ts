@@ -280,10 +280,10 @@ export const TECH_CONCEPTS = [
 ];
 
 export const INTRO_VIDEO = {
-  youtubeUrl: 'https://www.youtube.com/watch?v=7aEpPB8fh8E',
+  youtubeUrl: 'https://www.youtube.com/watch?v=ZJxIQTE5nmw',
   title: 'Cơ Chế Hoạt Động Năng Lượng Vô Hướng',
   subtitle: 'Tìm hiểu nguyên lý khoa học và công nghệ tần số sinh học.',
-  thumbnail: 'https://img.youtube.com/vi/7aEpPB8fh8E/maxresdefault.jpg',
+  thumbnail: '/images/intro-video-thumb.jpg',
 };
 
 export const TESTIMONIAL_VIDEOS: VideoItem[] = [

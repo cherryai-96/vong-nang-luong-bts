@@ -8,7 +8,7 @@ import { getYouTubeId } from '@/lib/utils';
 
 export default function IntroVideoSection() {
   const [isPlayingInline, setIsPlayingInline] = useState(false);
-  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl) || '7aEpPB8fh8E';
+  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl) || 'ZJxIQTE5nmw';
   const playerRef = useRef<any>(null);
 
   useEffect(() => {
