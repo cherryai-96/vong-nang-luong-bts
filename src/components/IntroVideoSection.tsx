@@ -8,7 +8,7 @@ import { getYouTubeId } from '@/lib/utils';
 
 export default function IntroVideoSection() {
   const [isPlayingInline, setIsPlayingInline] = useState(false);
-  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl) || 'O30mRejto84';
+  const videoId = getYouTubeId(INTRO_VIDEO.youtubeUrl) || '4k-6Vrvgps4';
 
   return (
     <section id="video-showcase" className="py-24 sm:py-32 bg-[#F4FAFD] relative scroll-mt-20">
