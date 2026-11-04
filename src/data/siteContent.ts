@@ -17,6 +17,8 @@ export interface Product {
   posterImage: string; // Original brochure for transparency verification
   price: number;
   currency: string;
+  isHot?: boolean;
+  hotBadgeText?: string;
   healthTopics: HealthTopic[];
   supplierClaims: string[];
   verifiedBenefits: string[];
@@ -235,6 +237,8 @@ export const PRODUCTS: Product[] = [
     posterImage: '/images/poster-tre-hoa.jpg',
     price: SITE_CONFIG.standardPrice,
     currency: SITE_CONFIG.currency,
+    isHot: true,
+    hotBadgeText: 'Sản Phẩm Hot · Bán Chạy',
     healthTopics: [
       {
         title: 'Tăng cường trao đổi chất',

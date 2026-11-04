@@ -43,9 +43,16 @@ export default function HealthTopicsSection() {
                 <div>
                   {/* Top Badge & Number */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono font-bold text-slate-400">
-                      0{idx + 1}.
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        0{idx + 1}.
+                      </span>
+                      {product?.isHot && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-xs">
+                          🔥 HOT
+                        </span>
+                      )}
+                    </div>
                     <div
                       className="w-9 h-9 rounded-xl flex items-center justify-center text-white"
                       style={{ backgroundColor: cat.accentColor }}

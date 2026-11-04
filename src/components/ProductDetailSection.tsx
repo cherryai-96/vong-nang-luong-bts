@@ -27,7 +27,15 @@ export default function ProductDetailSection() {
                     isImageLeft ? 'lg:order-1' : 'lg:order-2'
                   }`}
                 >
-                  <div className="bg-white/95 backdrop-blur-xs rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col items-center justify-center max-w-md mx-auto">
+                  <div className="relative bg-white/95 backdrop-blur-xs rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg flex flex-col items-center justify-center max-w-md mx-auto">
+                    {/* Floating Hot Badge */}
+                    {product.isHot && (
+                      <div className="absolute -top-3.5 right-6 z-10 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gradient-to-r from-red-600 via-rose-600 to-amber-500 text-white shadow-lg text-[11px] font-black tracking-wider uppercase border border-white/50">
+                        <span>🔥</span>
+                        <span>{product.hotBadgeText || 'Sản Phẩm Hot'}</span>
+                      </div>
+                    )}
+
                     {/* Compact Image Container */}
                     <div className="product-detail-box relative w-full flex items-center justify-center py-4">
                       <Image
@@ -63,13 +71,22 @@ export default function ProductDetailSection() {
                     isImageLeft ? 'lg:order-2' : 'lg:order-1'
                   }`}
                 >
-                  {/* Category Eyebrow */}
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 bg-white border border-slate-200/80">
-                    <span
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: product.accentHex }}
-                    />
-                    <span className="text-[#17212B]">{product.name}</span>
+                  {/* Category Eyebrow & Hot Badge */}
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white border border-slate-200/80 shadow-xs">
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: product.accentHex }}
+                      />
+                      <span className="text-[#17212B]">{product.name}</span>
+                    </div>
+
+                    {product.isHot && (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-xs">
+                        <span className="text-xs leading-none">🔥</span>
+                        <span>{product.hotBadgeText || 'Sản Phẩm Hot · Bán Chạy'}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Main Headline */}

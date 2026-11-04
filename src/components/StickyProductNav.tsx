@@ -55,7 +55,7 @@ export default function StickyProductNav() {
                 <a
                   key={prod.id}
                   href={`#detail-${prod.id}`}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all whitespace-nowrap inline-flex items-center gap-1.5 ${
                     isActive
                       ? 'text-white shadow-xs'
                       : 'text-[#667085] hover:text-[#17212B] bg-slate-50 hover:bg-slate-100'
@@ -64,7 +64,14 @@ export default function StickyProductNav() {
                     backgroundColor: isActive ? prod.accentHex : undefined,
                   }}
                 >
-                  {prod.name}
+                  <span>{prod.name}</span>
+                  {prod.isHot && (
+                    <span className={`px-1.5 py-0.5 text-[9px] font-black uppercase rounded-full leading-none tracking-tight ${
+                      isActive ? 'bg-white text-red-600' : 'bg-red-600 text-white shadow-xs'
+                    }`}>
+                      HOT
+                    </span>
+                  )}
                 </a>
               );
             })}
